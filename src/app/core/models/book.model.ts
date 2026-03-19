@@ -22,3 +22,13 @@ export interface CreateBookDto {
   genre: Genre;
   publishedYear?: number | null;
 }
+
+export interface BookFormValue {
+  title: string;
+  author: string;
+  description: string;
+  pageCount: number | null;
+  language: Language | null;
+  genre: Genre | null;
+  publishedYear: number | null;
+}
