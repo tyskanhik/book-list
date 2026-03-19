@@ -1,0 +1,52 @@
+<div class="filters-container">
+  <!-- Поиск -->
+  <div class="search-field">
+    <app-input
+      #searchInput
+      placeholder="Поиск по названию, описанию или автору"
+      (valueChange)="onSearchChange($event)"
+    />
+  </div>
+
+  <div class="filters-grid">
+    <!-- Жанр -->
+    <app-select
+      #genreSelect
+      label="Жанр"
+      [options]="genreOptionsWithAll"
+      placeholder="Выберите жанр"
+      (valueChange)="onGenreChange($event)"
+    />
+
+    <!-- Язык -->
+    <app-select
+      #languageSelect
+      label="Язык"
+      [options]="languageOptionsWithAll"
+      placeholder="Выберите язык"
+      (valueChange)="onLanguageChange($event)"
+    />
+
+    <!-- Страницы -->
+    <app-range
+      #pageRange
+      label="Страницы"
+      [min]="0"
+      [max]="2000"
+      fromPlaceholder="От"
+      toPlaceholder="До"
+      (rangeChange)="onPageChange($event)"
+    />
+
+    <!-- Кнопки -->
+    <div class="filter-item buttons">
+      <button 
+        pButton 
+        label="Сбросить всё" 
+        icon="pi pi-filter-slash"
+        (click)="resetFilters()"
+        class="p-button-outlined p-button-secondary"
+      ></button>
+    </div>
+  </div>
+</div>
