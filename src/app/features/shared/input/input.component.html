@@ -1,0 +1,10 @@
+<span class="p-input-icon-left w-full">
+  <input 
+    type="text" 
+    pInputText 
+    [(ngModel)]="value"
+    (ngModelChange)="onValueChange($event)"
+    [placeholder]="placeholder()"
+    class="w-full"
+  />
+</span>
