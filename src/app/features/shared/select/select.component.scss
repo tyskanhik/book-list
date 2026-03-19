@@ -1,0 +1,30 @@
+.select-container {
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+width: 100%;
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+::ng-deep {
+  .p-dropdown {
+    width: 100%;
+    padding: 0.4rem;
+    
+    .p-dropdown-clear-icon {
+      right: 2.5rem !important;
+      color: var(--text-color-secondary);
+      
+      &:hover {
+        color: var(--text-color);
+      }
+    }
+  }
+}
+}
