@@ -1,0 +1,85 @@
+<div class="book-list-container">
+  <div class="header">
+    <h1>Книги</h1>
+    <button 
+      pButton 
+      label="Создать книгу" 
+      icon="pi pi-plus"
+      routerLink="/books/create"
+      class="p-button-primary">
+    </button>
+  </div>
+
+  <!-- Фильтры -->
+  <app-book-filters (filtersChange)="onFiltersChange($event)" />
+
+  <!-- Загрузка -->
+  @if (loading()) {
+    <div class="loading-container">
+      <p-progressSpinner />
+      <p>Загрузка книг...</p>
+    </div>
+  }
+
+  <!-- Ошибка -->
+  @if (error(); as errorMessage) {
+    <div class="error-container">
+      <p-message severity="error" [text]="errorMessage" />
+      <button 
+        pButton 
+        label="Попробовать снова" 
+        icon="pi pi-refresh"
+        (click)="retryLoading()"
+        class="p-button-outlined p-button-sm">
+      </button>
+    </div>
+  }
+
+  <!-- Список книг -->
+  @if (!loading() && !error()) {
+    @if (books().length > 0) {
+      <div class="books-grid">
+        @for (book of books(); track book.id) {
+          <p-card 
+            [header]="book.title" 
+            [subheader]="book.author"
+            class="book-card"
+            (click)="openBookPreview(book)">
+            
+            <div class="book-content">
+              <p class="description">{{ book.description | slice:0:120 }}...</p>
+              
+              <div class="book-details">
+                <div class="detail-item">
+                  <i class="pi pi-book"></i>
+                  <span>{{ book.pageCount }} стр.</span>
+                </div>
+                <div class="detail-item">
+                  <i class="pi pi-globe"></i>
+                  <span>{{ book.language }}</span>
+                </div>
+              </div>
+
+              <div class="book-footer">
+                <p-tag
+                  [value]="book.genre"
+                />
+                
+                @if (book.publishedYear) {
+                  <span class="published-year">{{ book.publishedYear }} г.</span>
+                }
+              </div>
+            </div>
+          </p-card>
+        }
+      </div>
+    } @else {
+      <div class="empty-state">
+        <p>Книги не найдены</p>
+      </div>
+    }
+  }
+</div>
+
+  <!-- Превью -->
+<app-book-preview #previewModal />
