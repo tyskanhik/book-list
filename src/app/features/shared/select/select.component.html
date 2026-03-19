@@ -1,0 +1,12 @@
+<div class="select-container">
+  <label>{{ label() }}</label>
+  <p-dropdown 
+    [options]="options()" 
+    [(ngModel)]="selectedValue"
+    (onChange)="onChange()"
+    [placeholder]="placeholder()"
+    optionLabel="label"
+    optionValue="value"
+    appendTo="body"
+  />
+</div>

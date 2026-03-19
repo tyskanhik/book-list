@@ -1,0 +1,62 @@
+<p-dialog 
+  [(visible)]="visible" 
+  [style]="{ width: '600px' }"
+  [modal]="true"
+  [closable]="true"
+  [dismissableMask]="true"
+  [draggable]="false"
+  [resizable]="false"
+  header="Информация о книге">
+
+  @if (book) {
+    <div class="preview-content">
+      <!-- Заголовок и автор -->
+      <div class="header-section">
+        <h2>{{ book.title }}</h2>
+        <p class="author">{{ book.author }}</p>
+      </div>
+
+      <p-divider />
+
+      <!-- Жанр и язык -->
+      <div class="tags-section">
+        <p-tag 
+          [value]="book.genre" 
+          class="mr-2"
+        />
+        <p-tag 
+          [value]="book.language" 
+          severity="info"
+        />
+      </div>
+
+      <!-- Характеристики -->
+      <div class="details-section">
+        <div class="detail-item">
+          <i class="pi pi-book"></i>
+          <span><strong>Страниц:</strong> {{ book.pageCount }}</span>
+        </div>
+        
+        @if (book.publishedYear) {
+          <div class="detail-item">
+            <i class="pi pi-calendar"></i>
+            <span><strong>Год издания:</strong> {{ book.publishedYear }}</span>
+          </div>
+        }
+      </div>
+      
+      <p-divider />
+
+      <!-- Описание -->
+      <div class="description-section">
+        <h3>Описание</h3>
+        <p>{{ book.description }}</p>
+      </div>
+
+      <!-- Дополнительная информация -->
+      <div class="footer-info">
+        <small>Добавлена: {{ book.createdAt | date:'dd.MM.yyyy' }}</small>
+      </div>
+    </div>
+  }
+</p-dialog>

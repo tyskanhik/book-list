@@ -1,0 +1,20 @@
+<div class="range-container">
+  <label>{{ label() }}</label>
+  <div class="inputs">
+    <p-inputNumber 
+      [(ngModel)]="fromValue"
+      (ngModelChange)="onFromChange($event)"
+      [min]="min()" 
+      [max]="max()"
+      [placeholder]="fromPlaceholder()"
+    />
+    <span class="separator">—</span>
+    <p-inputNumber 
+      [(ngModel)]="toValue"
+      (ngModelChange)="onToChange($event)"
+      [min]="min()" 
+      [max]="max()"
+      [placeholder]="toPlaceholder()"
+    />
+  </div>
+</div>

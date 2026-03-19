@@ -1,0 +1,202 @@
+.filters-container {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--surface-border);
+
+  .search-field {
+    margin-bottom: 1.5rem;
+    
+    span {
+      width: 100%;
+      
+      input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--surface-border);
+        
+        &:focus {
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+      }
+
+      i {
+        left: 1rem;
+        color: var(--text-color-secondary);
+      }
+    }
+  }
+
+  .filters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr auto;
+    gap: 1rem;
+    align-items: end;
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-color-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+
+      // Стили для dropdown
+      ::ng-deep {
+        .p-dropdown {
+          width: 100%;
+          border-radius: 10px;
+          border: 1px solid var(--surface-border);
+          
+          &:hover {
+            border-color: var(--primary-color);
+          }
+          
+          &.p-focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+          }
+        }
+      }
+
+      // Стили для inputnumber
+      ::ng-deep {
+        .p-inputnumber {
+          width: 100%;
+          
+          input {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--surface-border);
+            padding: 0.5rem 0.75rem;
+            
+            &:focus {
+              border-color: var(--primary-color);
+              box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+            }
+          }
+        }
+      }
+
+      // Специальные стили для страниц
+      &.pages {
+        .pages-inputs {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .separator {
+            color: var(--text-color-secondary);
+            font-weight: 600;
+          }
+
+          ::ng-deep .p-inputnumber {
+            width: 100px;
+            
+            input {
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      // Кнопки
+      &.buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        margin-left: auto;
+
+        button {
+          padding: 0.5rem 1.5rem;
+          border-radius: 10px;
+          font-weight: 500;
+          
+          &:first-child {
+            background: var(--primary-color);
+            border: none;
+            
+            &:hover {
+              background: var(--primary-600);
+            }
+          }
+          
+          &:last-child {
+            border: 1px solid var(--surface-border);
+            background: white;
+            color: var(--text-color-secondary);
+            
+            &:hover {
+              background: var(--surface-ground);
+              color: var(--text-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Адаптивность
+@media (max-width: 1024px) {
+  .filters-container {
+    .filters-grid {
+      grid-template-columns: repeat(2, 1fr);
+      
+      .filter-item.pages {
+        grid-column: span 2;
+        
+        .pages-inputs {
+          justify-content: flex-start;
+        }
+      }
+      
+      .filter-item.buttons {
+        grid-column: span 2;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-container {
+    padding: 1rem;
+
+    .filters-grid {
+      grid-template-columns: 1fr;
+      
+      .filter-item {
+        &.pages {
+          grid-column: span 1;
+          
+          .pages-inputs {
+            flex-wrap: wrap;
+            
+            ::ng-deep .p-inputnumber {
+              flex: 1;
+            }
+          }
+        }
+        
+        &.buttons {
+          grid-column: span 1;
+          flex-direction: column;
+          
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
