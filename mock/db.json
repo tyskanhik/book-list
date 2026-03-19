@@ -263,37 +263,6 @@
       "genre": "Роман",
       "publishedYear": 2015,
       "createdAt": "2024-01-27T14:10:00.000Z"
-    },
-    {
-      "title": "название",
-      "author": "автор",
-      "description": "описание бла бла бла",
-      "pageCount": 300,
-      "language": "Русский",
-      "genre": "Фэнтези",
-      "publishedYear": 1234,
-      "id": "82b874dd-dd84-4ac9-afe8-bca46d8f0745",
-      "createdAt": "2026-03-18T21:38:23.031Z"
-    },
-    {
-      "title": "авпавпп",
-      "author": "вапаваап",
-      "description": "ваавпвапвапва",
-      "pageCount": 2020,
-      "language": "Английский",
-      "genre": "Фэнтези",
-      "id": "52c15ae3-fde2-4704-9957-e4257bfb2cea",
-      "createdAt": "2026-03-18T21:44:58.887Z"
-    },
-    {
-      "title": "рапрапр",
-      "author": "апрапар",
-      "description": "апрапрапрпар",
-      "pageCount": 4,
-      "language": "Русский",
-      "genre": "Детектив",
-      "id": "5f332201-c55e-48e7-8d8c-2b160191eae5",
-      "createdAt": "2026-03-18T21:46:22.528Z"
     }
   ]
 }
