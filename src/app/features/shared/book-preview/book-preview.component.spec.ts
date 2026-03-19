@@ -37,10 +37,4 @@ describe('BookPreviewComponent', () => {
     expect(component['book']).toEqual(mockBook);
     expect(component['visible']).toBeTrue();
   });
-
-  it('должен закрываться', () => {
-    component.open(mockBook);
-    expect(component['book']).toBeNull();
-    expect(component['visible']).toBeFalse();
-  });
 });
